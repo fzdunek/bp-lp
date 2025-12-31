@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .logo-moments {
+        -webkit-text-stroke: 1.5px #A03D45;
+        color: transparent;
+        letter-spacing: 0.05em;
+    }
+
+    .nav-link-figma {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: middle;
+        leading-trim: cap-height;
+    }
+}

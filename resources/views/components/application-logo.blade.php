@@ -1,0 +1,1 @@
+<img src="{{ str_starts_with($src, 'http://') || str_starts_with($src, 'https://') || str_starts_with($src, '/') ? $src : asset($src) }}" alt="{{ $alt }}" {{ $attributes->merge(['class' => 'h-9 w-auto']) }}>
