@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
 @layer components {
     .logo-moments {
         -webkit-text-stroke: 1.5px #A03D45;
@@ -15,10 +21,11 @@
         font-style: normal;
         font-size: 16px;
         line-height: 22px;
-        letter-spacing: 0;
+        letter-spacing: 0%;
         text-align: center;
         vertical-align: middle;
         leading-trim: cap-height;
+        color: #A22838; /* Primary color from Figma */
     }
 
     .rewards-header {
@@ -36,8 +43,8 @@
         font-family: 'dejanire-headline', 'Dejanire Headline', sans-serif;
         font-weight: 900;
         font-style: normal;
-        font-size: 32px;
-        line-height: 36.8px;
+        font-size: 24px;
+        line-height: 28px;
         letter-spacing: 0;
         text-align: center;
         vertical-align: middle;

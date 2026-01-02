@@ -3,7 +3,7 @@
     'description' => 'Aby wziąć udział w konkursie i zdobyć nagrodę gwarantowaną, zarejestruj się lub zaloguj.',
     'backgroundImage' => 'images/Stacja_bp_ranking 1.png',
     'backgroundImageAlt' => 'BP stacja i chmury w tle',
-    'gameIframeUrl' => null,
+    'gameIframeUrl' => '/game/index.html',
     'gamePlaceholder' => 'Placeholder dla iframe',
 ])
 
@@ -32,14 +32,16 @@
 
             <div class="flex justify-center mt-8 md:mt-12">
                 <div class="w-full max-w-xs md:max-w-sm h-[600px] md:h-[670px] border-2" style="background-color: #F5F5DC; border-color: #1a1a1a;">
-                    <div class="w-full h-full flex items-center justify-center">
+                    <div class="w-full h-full flex items-center justify-center relative">
                         @if($gameIframeUrl)
-                            <iframe
-                                src="{{ $gameIframeUrl }}"
-                                class="w-full h-full rounded-[20px]"
-                                frameborder="0"
-                                allowfullscreen
-                            ></iframe>
+                            <div id="iframe-container">
+                                <div id="iframe-placeholder"
+                                     class="w-full h-full bg-black flex justify-center items-center cursor-pointer">
+                                    <div class="text-white text-lg font-bold p-4 rounded-lg bg-black/70">
+                                        Kliknij, aby załadować grę
+                                    </div>
+                                </div>
+                            </div>
                         @else
                             <a href="{{ route('login') }}">
                                 <img src="{{ asset('images/placeholder.jpg') }}">

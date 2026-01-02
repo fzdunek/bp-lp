@@ -3,7 +3,7 @@
     'rewards' => [],
 ])
 
-<section class="w-full py-12 md:py-16 lg:py-20">
+<section id="nagrody" class="w-full py-12 md:py-16 lg:py-20">
     <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
         <h2 class="rewards-header mb-12 md:mb-16">

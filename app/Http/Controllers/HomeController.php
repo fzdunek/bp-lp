@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Models\Score;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 final class HomeController extends Controller
@@ -12,7 +15,7 @@ final class HomeController extends Controller
     {
         $steps = [
             'Zatankuj na <a href="#" class="font-bold underline" style="color: #963E3E;">najbliższej stacji bp</a> min. 10 litrów paliwa w czasie trwania promocji, korzystając z aplikacji BPme.',
-            '<a href="#" class="font-bold underline" style="color: #963E3E;">Zarejestruj się</a> na tej stronie z kodem z aplikacji i zagraj w grę Wild Jump.',
+            '<a href="/register" class="font-bold underline" style="color: #963E3E;">Zarejestruj się</a> na tej stronie z kodem z aplikacji i zagraj w grę Wild Jump.',
             'Odbierz nagrodę gwarantowaną i walcz o nagrody rankingowe.',
         ];
 
@@ -35,7 +38,7 @@ final class HomeController extends Controller
                 'illustration' => 'images/price3.png',
                 'illustrationAlt' => '150 000 punktów BPme',
                 'title' => 'Nagroda główna',
-                'description' => '150 000 punktów BPme (równowartość 1500 zł)',
+                'description' => '150 000 punktów BPme <br/><small>(równowartość 1500 zł)</small>',
                 'condition' => '1 miejsce w rankingu głównym',
             ],
         ];
@@ -79,31 +82,42 @@ final class HomeController extends Controller
             ],
         ];
 
-        $dailyRanking = [
-            ['place' => 1, 'name' => 'Piotr Wiśniewski', 'score' => 34836, 'datetime' => '07:22:51 30.12.2025'],
-            ['place' => 2, 'name' => 'Barbara Mazur', 'score' => 32541, 'datetime' => '08:15:23 30.12.2025'],
-            ['place' => 3, 'name' => 'Jan Kowalski', 'score' => 31245, 'datetime' => '09:30:12 30.12.2025'],
-            ['place' => 4, 'name' => 'Anna Nowak', 'score' => 29876, 'datetime' => '10:45:34 30.12.2025'],
-            ['place' => 5, 'name' => 'Marek Zieliński', 'score' => 28543, 'datetime' => '11:20:15 30.12.2025'],
-            ['place' => 6, 'name' => 'Katarzyna Wójcik', 'score' => 27210, 'datetime' => '12:10:45 30.12.2025'],
-            ['place' => 7, 'name' => 'Tomasz Krawczyk', 'score' => 25987, 'datetime' => '13:25:30 30.12.2025'],
-            ['place' => 8, 'name' => 'Magdalena Lewandowska', 'score' => 24765, 'datetime' => '14:40:22 30.12.2025'],
-            ['place' => 9, 'name' => 'Paweł Szymański', 'score' => 23542, 'datetime' => '15:55:10 30.12.2025'],
-            ['place' => 10, 'name' => 'Aleksandra Dąbrowska', 'score' => 22319, 'datetime' => '16:30:55 30.12.2025'],
-        ];
+        // Daily ranking - najlepsze wyniki z aktualnego dnia (jeden wynik na gracza)
+        $dailyRanking = Score::select('scores.user_id', 'users.name', DB::raw('MAX(scores.result) as max_result'), DB::raw('MAX(scores.end_timestamp) as latest_timestamp'))
+            ->join('users', 'scores.user_id', '=', 'users.id')
+            ->whereDate('scores.end_timestamp', Carbon::today())
+            ->whereNotNull('scores.result')
+            ->groupBy('scores.user_id', 'users.name')
+            ->orderByDesc('max_result')
+            ->limit(100)
+            ->get()
+            ->map(function ($item, $index) {
+                return [
+                    'place' => $index + 1,
+                    'name' => $item->name,
+                    'score' => $item->max_result,
+                    'datetime' => Carbon::parse($item->latest_timestamp)->format('H:i:s d.m.Y'),
+                ];
+            })
+            ->toArray();
 
-        $mainRanking = [
-            ['place' => 1, 'name' => 'Michał Wiśniewski', 'score' => 125436, 'datetime' => '10:15:30 25.12.2025'],
-            ['place' => 2, 'name' => 'Ewa Kowalczyk', 'score' => 118542, 'datetime' => '14:22:45 26.12.2025'],
-            ['place' => 3, 'name' => 'Robert Nowak', 'score' => 112389, 'datetime' => '09:30:12 27.12.2025'],
-            ['place' => 4, 'name' => 'Joanna Zielińska', 'score' => 106754, 'datetime' => '11:45:20 28.12.2025'],
-            ['place' => 5, 'name' => 'Krzysztof Wójcik', 'score' => 101298, 'datetime' => '16:20:35 29.12.2025'],
-            ['place' => 6, 'name' => 'Monika Krawczyk', 'score' => 95876, 'datetime' => '08:10:15 30.12.2025'],
-            ['place' => 7, 'name' => 'Dariusz Lewandowski', 'score' => 90432, 'datetime' => '12:35:50 30.12.2025'],
-            ['place' => 8, 'name' => 'Natalia Szymańska', 'score' => 85109, 'datetime' => '15:50:25 30.12.2025'],
-            ['place' => 9, 'name' => 'Łukasz Dąbrowski', 'score' => 79865, 'datetime' => '13:25:40 30.12.2025'],
-            ['place' => 10, 'name' => 'Sylwia Kozłowska', 'score' => 74621, 'datetime' => '17:05:18 30.12.2025'],
-        ];
+        // Main ranking - najlepsze wyniki z całej tabeli (jeden wynik na gracza)
+        $mainRanking = Score::select('scores.user_id', 'users.name', DB::raw('MAX(scores.result) as max_result'), DB::raw('MAX(scores.end_timestamp) as latest_timestamp'))
+            ->join('users', 'scores.user_id', '=', 'users.id')
+            ->whereNotNull('scores.result')
+            ->groupBy('scores.user_id', 'users.name')
+            ->orderByDesc('max_result')
+            ->limit(100)
+            ->get()
+            ->map(function ($item, $index) {
+                return [
+                    'place' => $index + 1,
+                    'name' => $item->name,
+                    'score' => $item->max_result,
+                    'datetime' => Carbon::parse($item->latest_timestamp)->format('H:i:s d.m.Y'),
+                ];
+            })
+            ->toArray();
 
         return view('home', [
             'steps' => $steps,

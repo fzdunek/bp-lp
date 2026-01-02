@@ -9,7 +9,7 @@
 <div class="w-full bg-promotion-bg rounded-[20px] p-6 md:p-8 flex flex-col items-center h-full">
     <!-- Illustration -->
     @if($illustration)
-        <div class="mb-6 flex-shrink-0">
+        <div class="mb-12 flex-shrink-0">
             <img
                 src="{{ str_starts_with($illustration, 'http://') || str_starts_with($illustration, 'https://') || str_starts_with($illustration, '/') ? $illustration : asset($illustration) }}"
                 alt="{{ $illustrationAlt }}"
@@ -20,7 +20,7 @@
 
     <!-- Title -->
     @if($title)
-        <h3 class="reward-title mb-3 md:mb-4">
+        <h3 class="reward-title mb-5 md:mb-8">
             {{ $title }}
         </h3>
     @endif
@@ -28,7 +28,7 @@
     <!-- Description -->
     @if($description)
         <p class="reward-description mb-4 md:mb-6">
-            {{ $description }}
+            {!! $description !!}
         </p>
     @endif
 

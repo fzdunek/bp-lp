@@ -1,5 +1,5 @@
 <nav x-data="{ open: false }" class="sticky top-0 z-50 w-full mb-4">
-    <div class="max-w-[1218px] mx-auto px-4 sm:px-0">
+    <div class="max-w-[1216px] mx-auto px-4 sm:px-0">
         <div class="bg-white rounded-b-[20px] shadow-xl">
             <!-- Primary Navigation Menu -->
             <div class="px-4 sm:px-[30px] py-[10px]">
@@ -13,11 +13,11 @@
 
                     <!-- Desktop Navigation Links - widoczne od md (768px) -->
                     <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
-                        <a href="#" class="nav-link-figma text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 whitespace-nowrap">Mechanika</a>
-                        <a href="#" class="nav-link-figma text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 whitespace-nowrap">Nagrody</a>
-                        <a href="#" class="nav-link-figma text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 whitespace-nowrap">Chwytam moment</a>
-                        <a href="#" class="nav-link-figma text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 whitespace-nowrap">Smaki chwili</a>
-                        <a href="{{ route('page.show', 'regulamin') }}" class="nav-link-figma text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 whitespace-nowrap">Regulamin</a>
+                        <a href="/#mechanika" class="desktop-nav-link nav-link-figma text-wild-bean-dark hover:opacity-80 transition-opacity transition-colors duration-200 whitespace-nowrap font-normal">Mechanika</a>
+                        <a href="/#nagrody" class="desktop-nav-link nav-link-figma text-wild-bean-dark hover:opacity-80 transition-opacity transition-colors duration-200 whitespace-nowrap font-normal">Nagrody</a>
+                        <a href="/#graj" class="desktop-nav-link nav-link-figma text-wild-bean-dark hover:opacity-80 transition-opacity transition-colors duration-200 whitespace-nowrap font-normal">Chwytam moment</a>
+                        <a href="/#smaki-chwili" class="desktop-nav-link nav-link-figma text-wild-bean-dark hover:opacity-80 transition-opacity transition-colors duration-200 whitespace-nowrap font-normal">Smaki chwili</a>
+                        <a href="{{ route('page.show', 'regulamin') }}" class="nav-link-figma text-wild-bean-dark hover:opacity-80 transition-opacity transition-colors duration-200 whitespace-nowrap">Regulamin</a>
                         @auth
                             <a href="{{ route('profile.edit') }}" class="nav-link-figma text-wild-bean-dark hover:opacity-80 transition-opacity duration-200 whitespace-nowrap">Moje konto</a>
                             <form method="POST" action="{{ route('logout') }}" class="inline">
@@ -44,11 +44,11 @@
             <!-- Mobile Navigation Menu - tylko na małych ekranach -->
             <div :class="{'block': open, 'hidden': ! open}" class="hidden md:hidden border-t border-gray-100">
                 <div class="px-4 sm:px-[30px] py-4 space-y-3">
-                    <a href="#" class="nav-link-figma block text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 py-2">Mechanika</a>
-                    <a href="#" class="nav-link-figma block text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 py-2">Nagrody</a>
-                    <a href="#" class="nav-link-figma block text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 py-2">Chwytam moment</a>
-                    <a href="#" class="nav-link-figma block text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 py-2">Smaki chwili</a>
-                    <a href="{{ route('page.show', 'regulamin') }}" class="nav-link-figma block text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 py-2">Regulamin</a>
+                    <a href="/#mechanika" class="mobile-nav-link nav-link-figma block text-wild-bean-dark hover:opacity-80 transition-opacity transition-colors duration-200 py-2 font-normal">Mechanika</a>
+                    <a href="/#nagrody" class="mobile-nav-link nav-link-figma block text-wild-bean-dark hover:opacity-80 transition-opacity transition-colors duration-200 py-2 font-normal">Nagrody</a>
+                    <a href="/#graj" class="mobile-nav-link nav-link-figma block text-wild-bean-dark hover:opacity-80 transition-opacity transition-colors duration-200 py-2 font-normal">Chwytam moment</a>
+                    <a href="/#smaki-chwili" class="mobile-nav-link nav-link-figma block text-wild-bean-dark hover:opacity-80 transition-opacity transition-colors duration-200 py-2 font-normal">Smaki chwili</a>
+                    <a href="{{ route('page.show', 'regulamin') }}" class="nav-link-figma block text-wild-bean-dark hover:opacity-80 transition-opacity transition-colors duration-200 py-2">Regulamin</a>
                     @auth
                         <a href="{{ route('profile.edit') }}" class="nav-link-figma block text-wild-bean-dark hover:opacity-80 transition-opacity duration-200 py-2">Moje konto</a>
                         <form method="POST" action="{{ route('logout') }}" class="block">

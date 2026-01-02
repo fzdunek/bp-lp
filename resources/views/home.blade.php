@@ -12,7 +12,7 @@
         appDownloadText="Pobierz BPme"
         appStoreUrl="#"
         googlePlayUrl="#"
-        promotionDuration="Czas trwania promocji: 19.01-01.03 2026 r."
+        promotionDuration="Czas trwania promocji: <span class='text-black'>19.01-01.03 2026 r.</span>"
     />
 
     <!-- Rewards Section -->

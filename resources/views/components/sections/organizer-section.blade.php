@@ -19,19 +19,19 @@
             @endif
 
             <!-- Content - Right Side -->
-            <div class="space-y-3 md:space-y-4 text-start">
+            <div class="text-start">
                 <!-- Title -->
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-ranking-title">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-ranking-title">
                     Organizator
                 </h2>
 
                 <!-- Company Name -->
-                <p class="text-base md:text-lg text-ranking-title">
+                <p class="text-base md:text-lg text-ranking-title font-roboto mt-4">
                     Organizatorem konkursu jest {{ $companyName }}.
                 </p>
 
                 <!-- Email -->
-                <p class="text-base md:text-lg text-ranking-title">
+                <p class="text-base md:text-lg text-ranking-title font-roboto mt-2">
                     e-mail: <a href="mailto:{{ $email }}" class="underline hover:opacity-80">{{ $email }}</a>
                 </p>
             </div>

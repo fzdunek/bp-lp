@@ -11,7 +11,7 @@
     'footerButtonUrl' => '#',
 ])
 
-<section class="w-full py-12 md:py-16 lg:py-20 bg-promotion-bg">
+<section id="smaki-chwili" class="w-full py-12 md:py-16 lg:py-20 bg-promotion-bg">
     <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header Section -->
         <div class="text-center space-y-4 mb-12 md:mb-16">
