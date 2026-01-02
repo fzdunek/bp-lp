@@ -1,0 +1,84 @@
+{
+  "name": "BPme",
+  "short_name": "BPme",
+  "id": "com.example.jumpgame",
+  "description": "",
+  "orientation": "portrait",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "categories": ["games", "entertainment"],
+  "icons": [{
+        "src": "c41383cf5e523181c0091624893c3e281a2ae0ca9046f58b657624b2b993ad56-ios-icon-20.png",
+        "sizes": "20x20"
+      },{
+        "src": "35c8f7f4d5b15c3ac181a20deeb15cc99e2fb2d31b072e478c6d028b8cc0be9f-ios-icon-29.png",
+        "sizes": "29x29"
+      },{
+        "src": "2f8906faf5a99aa1762c125c1e2bf0d7d3d78326f90f22c25a0398855a6ea230-android-icon-36.png",
+        "sizes": "36x36"
+      },{
+        "src": "ac349dca901c63a6be6b5cfbf2f42291b9203620bb9ad21f0f17a2cea933cd2c-ios-icon-40.png",
+        "sizes": "40x40"
+      },{
+        "src": "e7388e1b4bb5ff67e3ca0f498b126555ff93d1bcb486ab7f11728ffd766f1daa-android-icon-48.png",
+        "sizes": "48x48"
+      },{
+        "src": "92e50939202a06dd1af095aa6535710fd3096b8dfe200140251c8802dd0f3553-ios-icon-50.png",
+        "sizes": "50x50"
+      },{
+        "src": "4b232a1c535a0b802b9b924ee4908aa921f6498d03bbb5493d3567325070e496-ios-icon-57.png",
+        "sizes": "57x57"
+      },{
+        "src": "b4a93831982257eb32f79af9552b7b21e55126141b556e59553551a3d0b15c6d-ios-icon-58.png",
+        "sizes": "58x58"
+      },{
+        "src": "fcf3f9d262392793736654609eb68dd6c1b2ddaf4a5038cb5691a49293f5f4d1-ios-icon-60.png",
+        "sizes": "60x60"
+      },{
+        "src": "287cb7c20896fead0a3d688736483ef8eac1a760c8f4035f1e6f4791ca397fc7-android-icon-72.png",
+        "sizes": "72x72"
+      },{
+        "src": "3c83a9fa16f7f1316f4e183a347d78448db16cc47011ff59f9b37f8569c882b4-ios-icon-76.png",
+        "sizes": "76x76"
+      },{
+        "src": "cef85e533c9260d30a0b0598b3dd71d88d14bf34dcbc413c772e64bdf0ecbf0a-ios-icon-80.png",
+        "sizes": "80x80"
+      },{
+        "src": "35b688e7ced8ef39001398f60035e5e469bfc6c72be3c7994d1fe6820de82b5d-ios-icon-87.png",
+        "sizes": "87x87"
+      },{
+        "src": "1d6be08bebf2b65e5a2d4b1e5b11beacdcd5a8080b3304f9ad4f5157ffb8e2a2-android-icon-96.png",
+        "sizes": "96x96"
+      },{
+        "src": "49fa06ad670e9533fdf934494781d910cec1a7dce90bc0c1e9cbed5581463ae5-ios-icon-100.png",
+        "sizes": "100x100"
+      },{
+        "src": "bf8d63852e50b0b4df5a8b11138b14fe4a3fa3e9d0cff7b651bc4b33d0201c96-ios-icon-114.png",
+        "sizes": "114x114"
+      },{
+        "src": "cec57007e11198e840c81015ecce5b6bbc522aeccf11fe369255c291b1d4ce60-ios-icon-120.png",
+        "sizes": "120x120"
+      },{
+        "src": "6082b3f18ea7b1bf501228fd832c2aa5f3ee1df9a6daf9a8e83062bc37aee812-android-icon-144.png",
+        "sizes": "144x144"
+      },{
+        "src": "23c8ca11a461116f2899b4f5fee16583d7c30bbba7d8f51be6dfaee8925e7490-ios-icon-152.png",
+        "sizes": "152x152"
+      },{
+        "src": "7b5395f554174b001f1bd5efaac9bc2dc46a48621d3886763e599b6aa11509df-ios-icon-167.png",
+        "sizes": "167x167"
+      },{
+        "src": "3d53281cb689524ba88cb624cdf39215aa78a42e8b69e4654cc8c8a45c71ebbe-ios-icon-180.png",
+        "sizes": "180x180"
+      },{
+        "src": "a5b08f0f568d03375010e25f8cb63e628f0a3d4bad023845ad5e37e5aa62260c-android-icon-192.png",
+        "sizes": "192x192"
+      },{
+        "src": "c378a0460946eeae2396d7416a6d7b1469b8ebc0610e4c101ae32fc30edb0b9d-desktop-icon-512.png",
+        "sizes": "512x512"
+      },{
+        "src": "260f97f6a9a643957e378c01128207e1c40f2a906ba8d86fda81123d432a5ffc-ios-icon-1024.png",
+        "sizes": "1024x1024"
+      }]
+}

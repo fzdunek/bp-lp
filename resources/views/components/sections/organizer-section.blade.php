@@ -5,19 +5,9 @@
 ])
 
 <section class="relative w-full py-8 md:py-12 mt-12 overflow-hidden">
-    <!-- Cloud 1 - Top Left -->
-    <div class="absolute top-4 left-8 md:left-16 lg:left-24 z-0 hidden md:block">
-        <img src="{{ asset('images/chmura_1 1.png') }}" alt="" class="w-18 md:w-24 lg:w-30 h-auto">
+    <div class="absolute top-4 left-8 md:left-16 lg:left-24 z-0 hidden lg:block">
+        <img src="{{ asset('images/hero_person.png') }}" alt="" class="w-[180px] mt-20">
     </div>
-    <!-- Cloud 2 - Left Side (lower) -->
-    <div class="absolute top-16 md:top-20 lg:top-24 left-4 md:left-12 lg:left-20 z-0 hidden md:block">
-        <img src="{{ asset('images/chmura_2 1.png') }}" alt="" class="w-16 md:w-22 lg:w-28 h-auto">
-    </div>
-    <!-- Cloud 3 - Top Right -->
-    <div class="absolute top-8 right-12 md:right-20 lg:right-32 z-0 hidden md:block">
-        <img src="{{ asset('images/chmura_4 1.png') }}" alt="" class="w-20 md:w-28 lg:w-36 h-auto">
-    </div>
-    
     <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
         <div class="flex flex-col sm:flex-row items-center gap-6 md:gap-8 lg:gap-12">
             <!-- Logo - Left Side -->
