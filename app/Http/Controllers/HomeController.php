@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Score;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -83,41 +84,45 @@ final class HomeController extends Controller
         ];
 
         // Daily ranking - najlepsze wyniki z aktualnego dnia (jeden wynik na gracza)
-        $dailyRanking = Score::select('scores.user_id', 'users.name', DB::raw('MAX(scores.result) as max_result'), DB::raw('MAX(scores.end_timestamp) as latest_timestamp'))
-            ->join('users', 'scores.user_id', '=', 'users.id')
-            ->whereDate('scores.end_timestamp', Carbon::today())
-            ->whereNotNull('scores.result')
-            ->groupBy('scores.user_id', 'users.name')
-            ->orderByDesc('max_result')
-            ->limit(100)
-            ->get()
-            ->map(function ($item, $index) {
-                return [
-                    'place' => $index + 1,
-                    'name' => $item->name,
-                    'score' => $item->max_result,
-                    'datetime' => Carbon::parse($item->latest_timestamp)->format('H:i:s d.m.Y'),
-                ];
-            })
-            ->toArray();
+        $dailyRanking = Cache::remember('daily_ranking', 60, function () {
+            return Score::select('scores.user_id', 'users.name', DB::raw('MAX(scores.result) as max_result'), DB::raw('MAX(scores.end_timestamp) as latest_timestamp'))
+                ->join('users', 'scores.user_id', '=', 'users.id')
+                ->whereDate('scores.end_timestamp', Carbon::today())
+                ->whereNotNull('scores.result')
+                ->groupBy('scores.user_id', 'users.name')
+                ->orderByDesc('max_result')
+                ->limit(100)
+                ->get()
+                ->map(function ($item, $index) {
+                    return [
+                        'place' => $index + 1,
+                        'name' => $item->name,
+                        'score' => $item->max_result,
+                        'datetime' => Carbon::parse($item->latest_timestamp)->format('H:i:s d.m.Y'),
+                    ];
+                })
+                ->toArray();
+        });
 
         // Main ranking - najlepsze wyniki z całej tabeli (jeden wynik na gracza)
-        $mainRanking = Score::select('scores.user_id', 'users.name', DB::raw('MAX(scores.result) as max_result'), DB::raw('MAX(scores.end_timestamp) as latest_timestamp'))
-            ->join('users', 'scores.user_id', '=', 'users.id')
-            ->whereNotNull('scores.result')
-            ->groupBy('scores.user_id', 'users.name')
-            ->orderByDesc('max_result')
-            ->limit(100)
-            ->get()
-            ->map(function ($item, $index) {
-                return [
-                    'place' => $index + 1,
-                    'name' => $item->name,
-                    'score' => $item->max_result,
-                    'datetime' => Carbon::parse($item->latest_timestamp)->format('H:i:s d.m.Y'),
-                ];
-            })
-            ->toArray();
+        $mainRanking = Cache::remember('main_ranking', 60, function () {
+            return Score::select('scores.user_id', 'users.name', DB::raw('MAX(scores.result) as max_result'), DB::raw('MAX(scores.end_timestamp) as latest_timestamp'))
+                ->join('users', 'scores.user_id', '=', 'users.id')
+                ->whereNotNull('scores.result')
+                ->groupBy('scores.user_id', 'users.name')
+                ->orderByDesc('max_result')
+                ->limit(100)
+                ->get()
+                ->map(function ($item, $index) {
+                    return [
+                        'place' => $index + 1,
+                        'name' => $item->name,
+                        'score' => $item->max_result,
+                        'datetime' => Carbon::parse($item->latest_timestamp)->format('H:i:s d.m.Y'),
+                    ];
+                })
+                ->toArray();
+        });
 
         return view('home', [
             'steps' => $steps,
