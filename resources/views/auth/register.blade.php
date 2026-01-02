@@ -46,6 +46,18 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        <!-- Terms Acceptance -->
+        <div class="block mt-4">
+            <label for="terms" class="inline-flex items-center">
+                <input id="terms" type="checkbox" class="rounded border-gray-300 text-tertiary shadow-sm focus:ring-wild-bean-dark" name="terms" value="1" required>
+                <span class="ms-2 text-sm text-wild-bean-dark font-roboto">
+                    Akceptuję 
+                    <a href="{{ route('page.show', 'regulamin') }}" target="_blank" class="underline hover:text-wild-bean-light transition-colors duration-200">regulamin</a>
+                </span>
+            </label>
+            <x-input-error :messages="$errors->get('terms')" class="mt-2" />
+        </div>
+
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-wild-bean-dark hover:text-wild-bean-light rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-wild-bean-dark font-roboto transition-colors duration-200" href="{{ route('login') }}">
                 {{ __('Already registered?') }}

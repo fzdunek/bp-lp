@@ -16,8 +16,8 @@
 
                 <!-- Center: Navigation Links -->
                 <div class="flex items-center space-x-6 md:space-x-8">
-                    <a href="#" class="text-wild-bean-dark hover:text-wild-bean-light transition-colors duration-200 text-base md:text-lg whitespace-nowrap">Regulamin</a>
-                    <a href="#" class="text-wild-bean-dark hover:text-wild-bean-light transition-colors duration-200 text-base md:text-lg whitespace-nowrap">Polityka prywatności</a>
+                    <a href="{{ route('page.show', 'regulamin') }}" class="text-wild-bean-dark hover:text-wild-bean-light transition-colors duration-200 text-base md:text-lg whitespace-nowrap">Regulamin</a>
+                    <a href="{{ route('page.show', 'polityka-prywatnosci') }}" class="text-wild-bean-dark hover:text-wild-bean-light transition-colors duration-200 text-base md:text-lg whitespace-nowrap">Polityka prywatności</a>
                 </div>
 
                 <!-- Right: BP Logo Column (only visible on larger screens) -->

@@ -183,6 +183,10 @@ return [
             'regex' => 'Numer karty BPme musi zaczynać się od 2480 i zawierać 9 kolejnych cyfr (razem 13 znaków).',
             'size' => 'Numer karty BPme musi mieć dokładnie 13 znaków.',
         ],
+        'terms' => [
+            'required' => 'Musisz zaakceptować regulamin, aby się zarejestrować.',
+            'accepted' => 'Musisz zaakceptować regulamin, aby się zarejestrować.',
+        ],
     ],
 
     /*
@@ -202,6 +206,7 @@ return [
         'password' => 'hasło',
         'password_confirmation' => 'potwierdzenie hasła',
         'bpme_card_number' => 'numer karty BPme',
+        'terms' => 'regulamin',
     ],
 
 ];

@@ -17,7 +17,7 @@
                         <a href="#" class="nav-link-figma text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 whitespace-nowrap">Nagrody</a>
                         <a href="#" class="nav-link-figma text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 whitespace-nowrap">Chwytam moment</a>
                         <a href="#" class="nav-link-figma text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 whitespace-nowrap">Smaki chwili</a>
-                        <a href="#" class="nav-link-figma text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 whitespace-nowrap">Regulamin</a>
+                        <a href="{{ route('page.show', 'regulamin') }}" class="nav-link-figma text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 whitespace-nowrap">Regulamin</a>
                         @auth
                             <a href="{{ route('profile.edit') }}" class="nav-link-figma text-wild-bean-dark hover:opacity-80 transition-opacity duration-200 whitespace-nowrap">Moje konto</a>
                             <form method="POST" action="{{ route('logout') }}" class="inline">
@@ -48,7 +48,7 @@
                     <a href="#" class="nav-link-figma block text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 py-2">Nagrody</a>
                     <a href="#" class="nav-link-figma block text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 py-2">Chwytam moment</a>
                     <a href="#" class="nav-link-figma block text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 py-2">Smaki chwili</a>
-                    <a href="#" class="nav-link-figma block text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 py-2">Regulamin</a>
+                    <a href="{{ route('page.show', 'regulamin') }}" class="nav-link-figma block text-wild-bean-light hover:text-wild-bean-dark transition-colors duration-200 py-2">Regulamin</a>
                     @auth
                         <a href="{{ route('profile.edit') }}" class="nav-link-figma block text-wild-bean-dark hover:opacity-80 transition-opacity duration-200 py-2">Moje konto</a>
                         <form method="POST" action="{{ route('logout') }}" class="block">

@@ -28,6 +28,7 @@ class RegisterRequest extends FormRequest
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'bpme_card_number' => ['required', 'string', 'size:13', 'regex:/^2480\d{9}$/'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'terms' => ['required', 'accepted'],
         ];
     }
 }
