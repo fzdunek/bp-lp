@@ -6,7 +6,7 @@
 <section class="w-full py-12 md:py-16 lg:py-20">
     <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-12 md:mb-16" style="color: #EFD8B8;">
+        <h2 class="rewards-header mb-12 md:mb-16">
             {{ $title }}
         </h2>
 

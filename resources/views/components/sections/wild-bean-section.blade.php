@@ -3,8 +3,9 @@
     'subtitle' => 'Oferta sezonowa Wild Bean Cafe',
     'drinks' => [],
     'footerTitle' => 'Czas na Twoją chwilę przyjemności.',
-    'footerDescription' => 'Zatrzymaj się na chwilę w codziennym biegu i odkryj świat Wild Bean Moments – miejsce, gdzie każdy łyk staje się wyjątkowym doświadczeniem. To nie tylko aromatyczne kawy, ale także kolekcja sześciu kubków, które zamieniają gorący napój w podróż pełną emocji. Każdy wzór to inna opowieść – razem tworzą świat, w którym liczy się nie tylko cel, ale i droga. Kubki dostępne na wybranych stacjach. Zdjęcie poglądowe.',
-    'footerImage' => 'images/kawa-hotdog.png',
+    'footerDescription' => 'Zatrzymaj się na chwilę w codziennym biegu i odkryj świat Wild Bean Moments – miejsce, gdzie każdy łyk staje się wyjątkowym doświadczeniem. To nie tylko aromatyczne kawy, ale także kolekcja sześciu kubków, które zamieniają gorący napój w podróż pełną emocji. Każdy wzór to inna opowieść – razem tworzą świat, w którym liczy się nie tylko cel, ale i droga.',
+    'footerNote' => 'Kubki dostępne na wybranych stacjach. Zdjęcie poglądowe.',
+    'footerImage' => 'images/kawy.png',
     'footerImageAlt' => 'Wild Bean Cafe kubki',
     'footerButtonText' => 'Znajdź najbliższą stację',
     'footerButtonUrl' => '#',
@@ -29,34 +30,41 @@
 
         <!-- Footer Promotional Section -->
         <div class="bg-white rounded-[20px] shadow-md p-6 md:p-8 lg:p-10">
-            <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
-                <!-- Left Side: Coffee Cups Image -->
-                <div class="flex-shrink-0 w-full lg:w-auto">
-                    <div class="h-48 lg:h-64 flex items-center justify-center">
-                        <img
-                            src="{{ asset($footerImage) }}"
-                            alt="{{ $footerImageAlt }}"
-                            class="max-h-full max-w-full object-contain"
-                        />
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
+                <!-- Image Section -->
+                <div class="flex items-center justify-center">
+                    <img
+                        src="{{ asset($footerImage) }}"
+                        alt="{{ $footerImageAlt }}"
+                        class="max-h-full max-w-full object-contain"
+                    />
+                </div>
+
+                <!-- Text Section -->
+                <div class="flex-1 text-left space-y-4">
+                    <h3 class="wild-bean-footer-header text-reward-value">
+                        {{ $footerTitle }}
+                    </h3>
+                    <div class="space-y-2">
+                        <p class="wild-bean-footer-text">
+                            {{ $footerDescription }}
+                        </p>
+                        @if($footerNote)
+                            <p class="wild-bean-footer-note text-reward-value">
+                                {{ $footerNote }}
+                            </p>
+                        @endif
                     </div>
                 </div>
 
-                <!-- Right Side: Text and Button -->
-                <div class="flex-1 text-left space-y-6">
-                    <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-wild-bean-dark">
-                        {{ $footerTitle }}
-                    </h3>
-                    <p class="font-roboto text-base sm:text-lg text-gray-900 leading-relaxed">
-                        {{ $footerDescription }}
-                    </p>
-                    <div>
-                        <a
-                            href="{{ $footerButtonUrl }}"
-                            class="inline-block px-6 py-3 rounded-[20px] font-semibold text-lg bg-promotion-green text-white transition-all duration-300 hover:opacity-90 hover:shadow-lg transform hover:-translate-y-0.5"
-                        >
-                            {{ $footerButtonText }}
-                        </a>
-                    </div>
+                <!-- Button Section -->
+                <div class="flex items-center justify-center">
+                    <a
+                        href="{{ $footerButtonUrl }}"
+                        class="wild-bean-footer-button"
+                    >
+                        {{ $footerButtonText }}
+                    </a>
                 </div>
             </div>
         </div>

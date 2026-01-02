@@ -1,14 +1,12 @@
 <footer class="relative w-full mt-auto">
-    <!-- Green Separator Line (Double Line) -->
     <div class="w-full h-1 bg-black">
         <div class="w-full h-0.5 bg-bp-green"></div>
         <div class="w-full h-0.5 bg-bp-green mt-0.5"></div>
     </div>
 
-    <!-- Footer Content -->
     <div class="bg-white relative">
         <div class="max-w-[1218px] mx-auto px-4 sm:px-0 relative">
-            <div class="flex flex-col md:flex-row items-center justify-between py-6 md:py-8 gap-4 md:gap-6">
+            <div class="flex flex-col md:flex-row items-center justify-between  md:py-8 gap-4 md:gap-6">
                 <!-- Left: Wild Bean Moments Branding -->
                 <div class="flex items-center">
                     <div class="flex flex-col">
@@ -23,7 +21,7 @@
                 </div>
 
                 <!-- Right: BP Logo Column (only visible on larger screens) -->
-                <div class="hidden lg:flex flex-col items-center justify-start bg-[#F5F5DC] px-6 py-4 rounded-lg space-y-3 min-w-[120px]">
+                <div class="hidden lg:flex flex-col items-center justify-start bg-[#F5F5DC] px-6  rounded-lg space-y-3 min-w-[120px]">
                     <!-- BP Text -->
                     <span class="text-2xl font-bold text-bp-green">bp</span>
                 </div>

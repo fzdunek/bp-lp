@@ -1,6 +1,6 @@
 @props([
     'title' => 'Mechanika',
-    'image' => null,
+    'image' => 'images/mechnika.png',
     'imageAlt' => '',
     'heading' => 'Co muszę zrobić?',
     'steps' => [],
@@ -23,7 +23,7 @@
             <div class="w-full">
                 @if($image)
                     <img
-                        src="{{ str_starts_with($image, 'http://') || str_starts_with($image, 'https://') || str_starts_with($image, '/') ? $image : asset($image) }}"
+                        src="{{ asset('images/mechanika.png') }}"
                         alt="{{ $imageAlt }}"
                         class="w-full h-auto rounded-[20px] object-cover"
                     />

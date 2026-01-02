@@ -32,6 +32,8 @@ export default {
                 'ranking-row-even': '#EBDDC8',
                 'ranking-bg': '#F5F5F5',
                 'ranking-cloud': '#8B4513',
+                'reward-value': '#A22838',
+                'tertiary': '#32702F',
             },
         },
     },

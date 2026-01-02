@@ -4,7 +4,7 @@
     'email' => 'info@ggleague.pl',
 ])
 
-<section class="w-full py-8 md:py-12">
+<section class="w-full py-8 md:py-12 mt-12">
     <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
         <div class="flex flex-col sm:flex-row items-center gap-6 md:gap-8 lg:gap-12">
             <!-- Logo - Left Side -->

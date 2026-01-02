@@ -32,7 +32,7 @@ final class HomeController extends Controller
                 'condition' => 'Pozycja top 100 w rankingu dziennnym',
             ],
             [
-                'illustration' => 'images/kawa-hotdog.png',
+                'illustration' => 'images/price3.png',
                 'illustrationAlt' => '150 000 punktów BPme',
                 'title' => 'Nagroda główna',
                 'description' => '150 000 punktów BPme (równowartość 1500 zł)',

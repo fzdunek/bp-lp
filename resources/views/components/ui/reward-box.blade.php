@@ -20,21 +20,21 @@
 
     <!-- Title -->
     @if($title)
-        <h3 class="text-xl md:text-2xl font-bold text-center mb-3 md:mb-4" style="color: #963E3E;">
+        <h3 class="reward-title mb-3 md:mb-4">
             {{ $title }}
         </h3>
     @endif
 
     <!-- Description -->
     @if($description)
-        <p class="text-lg md:text-xl font-bold text-center mb-4 md:mb-6" style="color: #963E3E;">
+        <p class="reward-description mb-4 md:mb-6">
             {{ $description }}
         </p>
     @endif
 
     <!-- Condition -->
     @if($condition)
-        <p class="text-sm md:text-base text-left w-full mt-auto" style="color: #963E3E;">
+        <p class="reward-condition w-full mt-auto">
             <span class="font-bold">Warunek:</span> {{ $condition }}
         </p>
     @endif
