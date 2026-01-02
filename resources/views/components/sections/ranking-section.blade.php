@@ -75,7 +75,7 @@
                         <tbody>
                             @forelse($dailyRanking as $index => $entry)
                                 <tr class="{{ $index % 2 === 0 ? 'bg-ranking-row-odd' : 'bg-ranking-row-even' }}">
-                                    <td class="px-4 md:px-6 py-4 text-center">
+                                    <td class="px-4 md:px-6 py-4">
                                         <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-ranking-badge text-white font-bold text-sm md:text-base">
                                             {{ $entry['place'] ?? $index + 1 }}
                                         </span>
@@ -93,7 +93,7 @@
                             @empty
                                 @for($i = 1; $i <= 10; $i++)
                                     <tr class="{{ $i % 2 === 0 ? 'bg-ranking-row-odd' : 'bg-ranking-row-even' }}">
-                                        <td class="px-4 md:px-6 py-4 text-center">
+                                        <td class="px-4 md:px-6 py-4">
                                             <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-ranking-badge text-white font-bold text-sm md:text-base">
                                                 {{ $i }}
                                             </span>
@@ -128,7 +128,7 @@
                         <tbody>
                             @forelse($mainRanking as $index => $entry)
                                 <tr class="{{ $index % 2 === 0 ? 'bg-ranking-row-odd' : 'bg-ranking-row-even' }}">
-                                    <td class="px-4 md:px-6 py-4 text-center">
+                                    <td class="px-4 md:px-6 py-4">
                                         <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-ranking-badge text-white font-bold text-sm md:text-base">
                                             {{ $entry['place'] ?? $index + 1 }}
                                         </span>
@@ -146,7 +146,7 @@
                             @empty
                                 @for($i = 1; $i <= 10; $i++)
                                     <tr class="{{ $i % 2 === 0 ? 'bg-ranking-row-odd' : 'bg-ranking-row-even' }}">
-                                        <td class="px-4 md:px-6 py-4 text-center">
+                                        <td class="px-4 md:px-6 py-4">
                                             <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-ranking-badge text-white font-bold text-sm md:text-base">
                                                 {{ $i }}
                                             </span>

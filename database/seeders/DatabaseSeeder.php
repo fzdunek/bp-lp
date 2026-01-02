@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             \Database\Seeders\PageSeeder::class,
+            \Database\Seeders\UserScoreSeeder::class,
         ]);
     }
 }
