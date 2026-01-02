@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function () {
     const iframeContainer = document.getElementById('iframe-container');
     const placeholder = document.getElementById('iframe-placeholder');
-    const iframeSrc = "https://bp-lp.test/game/index.html";
+    const iframeSrc = "https://wildbeanmoments.pl/game/index.html";
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     placeholder.addEventListener('click', function () {
