@@ -5,28 +5,21 @@
 
 <div class="w-full py-12 md:py-16 lg:py-20" x-data="{ activeTab: 'daily' }">
     <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Title -->
         <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-8 md:mb-12 text-ranking-title">
             Ranking
         </h2>
 
-        <!-- Tabs and Table Container -->
         <div class="relative">
-            <!-- Left Cloud -->
             <div class="hidden lg:block absolute -left-[140px] top-1/2 -translate-y-1/2 -translate-x-1/4 z-0">
                 <img src="{{ asset('images/chmura_2 1.png') }}" alt="" class="w-16 md:w-22 lg:w-28 h-auto">
             </div>
 
-            <!-- Right Cloud -->
             <div class="hidden lg:block absolute -right-[100px] top-[200px] -translate-y-1/2 translate-x-1/4 z-0">
                 <img src="{{ asset('images/chmura_1 1.png') }}" alt="" class="w-16 md:w-22 lg:w-28 h-auto">
             </div>
 
-            <!-- Tabs and Table Container -->
             <div class="relative z-10 shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                <!-- Tabs -->
                 <div class="flex w-full">
-                    <!-- Daily Ranking Tab -->
                     <button
                         @click="activeTab = 'daily'"
                         :class="activeTab === 'daily' ? 'bg-ranking-active text-white' : 'bg-white text-gray-800'"
@@ -36,7 +29,6 @@
                         <span x-show="activeTab !== 'daily'" class="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-300"></span>
                     </button>
 
-                    <!-- Main Ranking Tab -->
                     <button
                         @click="activeTab = 'main'"
                         :class="activeTab === 'main' ? 'bg-ranking-active text-white' : 'bg-white text-gray-800'"
@@ -47,9 +39,7 @@
                     </button>
                 </div>
 
-                <!-- Table Container -->
                 <div class="bg-white rounded-b-[20px] overflow-hidden">
-                <!-- Daily Ranking Table -->
                 <div x-show="activeTab === 'daily'" x-transition class="max-h-[850px] overflow-y-auto overflow-x-auto">
                     <table class="w-full">
                         <thead class="sticky top-0 z-10 bg-white">
@@ -102,7 +92,6 @@
                     </table>
                 </div>
 
-                <!-- Main Ranking Table -->
                 <div x-show="activeTab === 'main'" x-transition class="max-h-[850px] overflow-y-auto overflow-x-auto">
                     <table class="w-full">
                         <thead class="sticky top-0 z-10 bg-white">

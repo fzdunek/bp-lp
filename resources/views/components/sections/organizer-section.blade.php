@@ -10,7 +10,6 @@
     </div>
     <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
         <div class="flex flex-col sm:flex-row items-center gap-6 md:gap-8 lg:gap-12">
-            <!-- Logo - Left Side -->
             @if($logo)
                 <div class="flex-shrink-0" data-aos="fade-right">
                     <img
@@ -21,19 +20,15 @@
                 </div>
             @endif
 
-            <!-- Content - Right Side -->
             <div class="text-start" data-aos="fade-left" data-aos-delay="200">
-                <!-- Title -->
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-ranking-title">
                     Organizator
                 </h2>
 
-                <!-- Company Name -->
                 <p class="text-base md:text-lg text-ranking-title font-roboto mt-4">
                     Organizatorem konkursu jest {{ $companyName }}.
                 </p>
 
-                <!-- Email -->
                 <p class="text-base md:text-lg text-ranking-title font-roboto mt-2">
                     e-mail: <a href="mailto:{{ $email }}" class="underline hover:opacity-80">{{ $email }}</a>
                 </p>

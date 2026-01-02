@@ -7,20 +7,16 @@
 ])
 
 <section id="graj" class="relative w-full min-h-screen py-16 md:py-24 overflow-hidden">
-    <!-- Cloud 2 - Top Left -->
     <div class="absolute top-20 left-8 md:left-16 lg:left-24 z-0 hidden md:block">
         <img src="{{ asset('images/chmura_2 1.png') }}" alt="" class="w-28 md:w-36 lg:w-44 h-auto">
     </div>
-    <!-- Cloud 1 - Top Right -->
     <div class="absolute top-32 right-12 md:right-20 lg:right-32 z-0 hidden md:block">
         <img src="{{ asset('images/chmura_1 1.png') }}" alt="" class="w-24 md:w-32 lg:w-40 h-auto">
     </div>
-    <!-- Cloud 4 - Middle Right -->
     <div class="absolute top-1/2 right-8 md:right-16 lg:right-24 z-0 -translate-y-1/2 hidden md:block">
         <img src="{{ asset('images/chmura_4 1.png') }}" alt="" class="w-20 md:w-28 lg:w-36 h-auto">
     </div>
 
-    <!-- Background Image - Bottom Left -->
     <div class="absolute bottom-0 left-0 z-0 w-full">
         <div class="relative w-full max-w-6xl mx-auto px-4 sm:px-8">
             <img
@@ -30,7 +26,6 @@
             />
         </div>
     </div>
-    <!-- Content Overlay -->
     <div class="relative z-10 w-full h-full flex flex-col items-center justify-center px-4 sm:px-8 py-12 md:py-16">
         <div class="relative w-full max-w-6xl mx-auto space-y-8 md:space-y-12">
             <div class="text-center space-y-4 md:space-y-6">

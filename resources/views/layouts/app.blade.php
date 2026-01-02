@@ -7,25 +7,21 @@
 
         <title>{{ config('app.name', 'Wild Bean Moments') }}</title>
 
-        <!-- Fonts -->
         <link rel="stylesheet" href="https://use.typekit.net/msd0ubc.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-        <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased bg-page-bg">
         <div class="min-h-screen flex flex-col">
             @include('layouts.navigation')
 
-            <!-- Page Content -->
             <main class="w-full flex-grow">
                 {{ $slot }}
             </main>
 
-            <!-- Footer -->
             <x-footer />
         </div>
     </body>

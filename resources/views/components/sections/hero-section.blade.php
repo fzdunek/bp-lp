@@ -9,7 +9,6 @@
 ])
 
 <section class="relative w-full overflow-hidden">
-    <!-- Cloud decorations - multiple clouds in random positions -->
     <div class="absolute top-16 left-8 md:left-16 lg:left-24 z-5 hidden md:block">
         <img src="{{ asset('images/chmura_1 1.png') }}" alt="" class="w-20 md:w-28 lg:w-32 h-auto">
     </div>
@@ -24,22 +23,18 @@
         <div class="w-full max-w-4xl mx-auto px-4 sm:px-8 pt-6 md:pt-8 lg:pt-10">
             <div class="flex justify-center">
                 <div class="w-full text-center space-y-6 md:space-y-8">
-                    <!-- Headline -->
                     <h1 class="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight text-cream" data-aos="fade-up" data-aos-duration="1000">
                         {!! $headline !!}
                     </h1>
 
-                    <!-- Paragraph 1 -->
                     <p class="font-roboto text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-cream" data-aos="fade-up" data-aos-delay="200">
                         {{ $paragraph1 }}
                     </p>
 
-                    <!-- Paragraph 2 -->
                     <p class="font-roboto text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-cream" data-aos="fade-up" data-aos-delay="400">
                         {!! $paragraph2 !!}
                     </p>
 
-                    <!-- CTA Button -->
                     <div class="pt-4" data-aos="fade-up" data-aos-delay="600">
                         <a
                             href="{{ $ctaLink }}"
@@ -52,7 +47,6 @@
             </div>
         </div>
     </div>
-    <!-- Background Image -->
     <div class="-mt-8 md:-mt-16 lg:-mt-24 xl:-mt-32 bottom-0 left-0 right-0 w-full z-0">
         <img
             src="{{ asset($backgroundImage) }}"

@@ -13,7 +13,6 @@
 
 <section id="smaki-chwili" class="w-full py-12 md:py-16 lg:py-20 bg-promotion-bg">
     <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Header Section -->
         <div class="text-center space-y-4 mb-12 md:mb-16">
             <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-wild-bean-dark leading-tight" data-aos="fade-up">
                 {!! $title !!}
@@ -23,15 +22,12 @@
             </p>
         </div>
 
-        <!-- Drink Cards Grid -->
         <div class="mb-12 md:mb-16" data-aos="fade-up" data-aos-delay="300">
             <x-ui.drinks-grid :drinks="$drinks" />
         </div>
 
-        <!-- Footer Promotional Section -->
         <div class="bg-white rounded-[20px] shadow-md p-6 md:p-8 lg:p-10" data-aos="fade-up" data-aos-delay="400">
             <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
-                <!-- Image Section -->
                 <div class="flex items-center justify-center">
                     <img
                         src="{{ asset($footerImage) }}"
@@ -40,7 +36,6 @@
                     />
                 </div>
 
-                <!-- Text Section -->
                 <div class="flex-1 text-left space-y-4">
                     <h3 class="wild-bean-footer-header text-reward-value">
                         {{ $footerTitle }}
@@ -57,7 +52,6 @@
                     </div>
                 </div>
 
-                <!-- Button Section -->
                 <div class="flex items-center justify-center">
                     <a
                         href="{{ $footerButtonUrl }}"
