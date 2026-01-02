@@ -179,8 +179,9 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'bpme_card_number' => [
+            'regex' => 'Numer karty BPme musi zaczynać się od 2480 i zawierać 9 kolejnych cyfr (razem 13 znaków).',
+            'size' => 'Numer karty BPme musi mieć dokładnie 13 znaków.',
         ],
     ],
 
@@ -200,6 +201,7 @@ return [
         'email' => 'e-mail',
         'password' => 'hasło',
         'password_confirmation' => 'potwierdzenie hasła',
+        'bpme_card_number' => 'numer karty BPme',
     ],
 
 ];

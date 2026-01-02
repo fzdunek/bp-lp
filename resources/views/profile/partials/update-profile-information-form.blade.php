@@ -47,6 +47,12 @@
             @endif
         </div>
 
+        <div>
+            <x-input-label for="bpme_card_number" :value="__('Numer karty BPme')" />
+            <x-text-input id="bpme_card_number" name="bpme_card_number" type="text" class="mt-1 block w-full" :value="old('bpme_card_number', $user->bpme_card_number)" required autocomplete="off" maxlength="13" placeholder="2480XXXXXXXXX" />
+            <x-input-error class="mt-2" :messages="$errors->get('bpme_card_number')" />
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 

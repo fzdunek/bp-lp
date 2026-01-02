@@ -16,6 +16,13 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- BPme Card Number -->
+        <div class="mt-4">
+            <x-input-label for="bpme_card_number" :value="__('Numer karty BPme')" />
+            <x-text-input id="bpme_card_number" class="block mt-1 w-full" type="text" name="bpme_card_number" :value="old('bpme_card_number')" required autocomplete="off" maxlength="13" placeholder="2480XXXXXXXXX" />
+            <x-input-error :messages="$errors->get('bpme_card_number')" class="mt-2" />
+        </div>
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
@@ -40,7 +47,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+            <a class="underline text-sm text-wild-bean-dark hover:text-wild-bean-light rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-wild-bean-dark font-roboto transition-colors duration-200" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
 
