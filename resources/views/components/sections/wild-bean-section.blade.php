@@ -15,21 +15,21 @@
     <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header Section -->
         <div class="text-center space-y-4 mb-12 md:mb-16">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-wild-bean-dark leading-tight">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-wild-bean-dark leading-tight" data-aos="fade-up">
                 {!! $title !!}
             </h2>
-            <p class="text-3xl font-bold text-wild-bean-dark leading-tight">
+            <p class="text-3xl font-bold text-wild-bean-dark leading-tight" data-aos="fade-up" data-aos-delay="200">
                 {{ $subtitle }}
             </p>
         </div>
 
         <!-- Drink Cards Grid -->
-        <div class="mb-12 md:mb-16">
+        <div class="mb-12 md:mb-16" data-aos="fade-up" data-aos-delay="300">
             <x-ui.drinks-grid :drinks="$drinks" />
         </div>
 
         <!-- Footer Promotional Section -->
-        <div class="bg-white rounded-[20px] shadow-md p-6 md:p-8 lg:p-10">
+        <div class="bg-white rounded-[20px] shadow-md p-6 md:p-8 lg:p-10" data-aos="fade-up" data-aos-delay="400">
             <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
                 <!-- Image Section -->
                 <div class="flex items-center justify-center">

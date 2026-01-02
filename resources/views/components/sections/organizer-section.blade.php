@@ -22,7 +22,7 @@
         <div class="flex flex-col sm:flex-row items-center gap-6 md:gap-8 lg:gap-12">
             <!-- Logo - Left Side -->
             @if($logo)
-                <div class="flex-shrink-0">
+                <div class="flex-shrink-0" data-aos="fade-right">
                     <img
                         src="{{ asset($logo) }}"
                         alt="{{ $companyName }}"
@@ -32,7 +32,7 @@
             @endif
 
             <!-- Content - Right Side -->
-            <div class="text-start">
+            <div class="text-start" data-aos="fade-left" data-aos-delay="200">
                 <!-- Title -->
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-ranking-title">
                     Organizator

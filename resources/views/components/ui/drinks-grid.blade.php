@@ -4,8 +4,8 @@
 
 @if(!empty($drinks))
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        @foreach($drinks as $drink)
-            <div class="bg-white rounded-[20px] shadow-md p-16 flex flex-col items-center text-center">
+        @foreach($drinks as $index => $drink)
+            <div class="bg-white rounded-[20px] shadow-md p-16 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="{{ ($index % 3) * 100 }}">
                 <div class="mb-4 h-64 flex items-center justify-center">
                     <img
                         src="{{ asset($drink['image'] ?? 'images/kawa.jpg') }}"

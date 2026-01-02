@@ -25,22 +25,22 @@
             <div class="flex justify-center">
                 <div class="w-full text-center space-y-6 md:space-y-8">
                     <!-- Headline -->
-                    <h1 class="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight text-cream">
+                    <h1 class="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight text-cream" data-aos="fade-up" data-aos-duration="1000">
                         {!! $headline !!}
                     </h1>
 
                     <!-- Paragraph 1 -->
-                    <p class="font-roboto text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-cream">
+                    <p class="font-roboto text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-cream" data-aos="fade-up" data-aos-delay="200">
                         {{ $paragraph1 }}
                     </p>
 
                     <!-- Paragraph 2 -->
-                    <p class="font-roboto text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-cream">
+                    <p class="font-roboto text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-cream" data-aos="fade-up" data-aos-delay="400">
                         {!! $paragraph2 !!}
                     </p>
 
                     <!-- CTA Button -->
-                    <div class="pt-4">
+                    <div class="pt-4" data-aos="fade-up" data-aos-delay="600">
                         <a
                             href="{{ $ctaLink }}"
                             class="inline-block px-10 py-4 rounded-full font-bold text-lg bg-bp-green text-cream transition-all duration-300 hover:opacity-90 hover:shadow-lg transform hover:-translate-y-0.5"

@@ -19,21 +19,23 @@
     
     <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
-        <h2 class="rewards-header mb-12 md:mb-16">
+        <h2 class="rewards-header mb-12 md:mb-16" data-aos="fade-up">
             {{ $title }}
         </h2>
 
         <!-- Rewards Grid -->
         @if(!empty($rewards))
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                @foreach($rewards as $reward)
-                    <x-ui.reward-box
-                        :illustration="$reward['illustration'] ?? null"
-                        :illustrationAlt="$reward['illustrationAlt'] ?? ''"
-                        :title="$reward['title'] ?? ''"
-                        :description="$reward['description'] ?? ''"
-                        :condition="$reward['condition'] ?? ''"
-                    />
+                @foreach($rewards as $index => $reward)
+                    <div data-aos="fade-up" data-aos-delay="{{ ($index % 3) * 100 }}">
+                        <x-ui.reward-box
+                            :illustration="$reward['illustration'] ?? null"
+                            :illustrationAlt="$reward['illustrationAlt'] ?? ''"
+                            :title="$reward['title'] ?? ''"
+                            :description="$reward['description'] ?? ''"
+                            :condition="$reward['condition'] ?? ''"
+                        />
+                    </div>
                 @endforeach
             </div>
         @endif

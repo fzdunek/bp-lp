@@ -13,14 +13,14 @@
 <div id="mechanika" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
     <div class="bg-promotion-bg rounded-[20px] p-8 md:p-12 lg:p-16">
         <!-- Main Title -->
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-center mb-6 text-promotion-text">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-center mb-6 text-promotion-text" data-aos="fade-up">
             {{ $title }}
         </h2>
 
         <!-- Two Column Layout -->
         <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 md:gap-8 items-start">
             <!-- Left Column - Image -->
-            <div class="w-full">
+            <div class="w-full" data-aos="fade-right" data-aos-delay="200">
                 @if($image)
                     <img
                         src="{{ asset('images/mechanika.png') }}"
@@ -35,7 +35,7 @@
             </div>
 
             <!-- Right Column - Content -->
-            <div class="w-full space-y-6 md:space-y-8">
+            <div class="w-full space-y-6 md:space-y-8" data-aos="fade-left" data-aos-delay="300">
                 <!-- Sub Heading -->
                 <h3 class="text-xl md:text-2xl font-black text-promotion-text -mb-5">
                     {{ $heading }}

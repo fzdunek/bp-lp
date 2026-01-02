@@ -3,7 +3,6 @@
     'description' => 'Aby wziąć udział w konkursie i zdobyć nagrodę gwarantowaną, zarejestruj się lub zaloguj.',
     'backgroundImage' => 'images/Stacja_bp_ranking 1.png',
     'backgroundImageAlt' => 'BP stacja i chmury w tle',
-    'gameIframeUrl' => '/game/index.html',
     'gamePlaceholder' => 'Placeholder dla iframe',
 ])
 
@@ -20,7 +19,7 @@
     <div class="absolute top-1/2 right-8 md:right-16 lg:right-24 z-0 -translate-y-1/2 hidden md:block">
         <img src="{{ asset('images/chmura_4 1.png') }}" alt="" class="w-20 md:w-28 lg:w-36 h-auto">
     </div>
-    
+
     <!-- Background Image - Bottom Left -->
     <div class="absolute bottom-0 left-0 z-0 w-full">
         <div class="relative w-full max-w-6xl mx-auto px-4 sm:px-8">
@@ -35,22 +34,22 @@
     <div class="relative z-10 w-full h-full flex flex-col items-center justify-center px-4 sm:px-8 py-12 md:py-16">
         <div class="relative w-full max-w-6xl mx-auto space-y-8 md:space-y-12">
             <div class="text-center space-y-4 md:space-y-6">
-                <h2 class="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-cream leading-tight">
+                <h2 class="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-cream leading-tight" data-aos="fade-up">
                     {{ $title }}
                 </h2>
-                <p class="text-base sm:text-lg md:text-xl text-cream max-w-3xl mx-auto leading-relaxed">
+                <p class="text-base sm:text-lg md:text-xl text-cream max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
                     {{ $description }}
                 </p>
             </div>
 
-            <div class="flex justify-center mt-8 md:mt-12">
+            <div class="flex justify-center mt-8 md:mt-12" data-aos="zoom-in" data-aos-delay="400">
                 <div class="w-full max-w-xs md:max-w-sm h-[600px] md:h-[670px] border-2" style="background-color: #F5F5DC; border-color: #1a1a1a;">
                     <div class="w-full h-full flex items-center justify-center relative">
-                        @if($gameIframeUrl)
+                        @auth
                             <div id="iframe-container">
                                 <div id="iframe-placeholder"
-                                     class="w-full h-full bg-black flex justify-center items-center cursor-pointer">
-                                    <div class="text-white text-lg font-bold p-4 rounded-lg bg-black/70">
+                                     class="w-full h-full flex justify-center items-center cursor-pointer">
+                                    <div class="inline-block px-10 py-4 rounded-full font-bold text-lg bg-bp-green text-cream transition-all duration-300 hover:opacity-90 hover:shadow-lg transform hover:-translate-y-0.5">
                                         Kliknij, aby załadować grę
                                     </div>
                                 </div>
@@ -59,7 +58,7 @@
                             <a href="{{ route('login') }}">
                                 <img src="{{ asset('images/placeholder.jpg') }}">
                             </a>
-                        @endif
+                        @endauth
                     </div>
                 </div>
             </div>

@@ -35,7 +35,7 @@
             </div>
 
             <!-- Tabs and Table Container -->
-            <div class="relative z-10 shadow-lg">
+            <div class="relative z-10 shadow-lg" data-aos="fade-up" data-aos-delay="200">
                 <!-- Tabs -->
                 <div class="flex w-full">
                     <!-- Daily Ranking Tab -->

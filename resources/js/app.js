@@ -1,10 +1,22 @@
 import './bootstrap';
 
 import Alpine from 'alpinejs';
+import AOS from 'aos';
 
 window.Alpine = Alpine;
 
 Alpine.start();
+
+// Initialize AOS (Animate On Scroll)
+document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100,
+        delay: 0,
+    });
+});
 
 // Smooth scroll with offset for navbar
 document.addEventListener('DOMContentLoaded', function() {
