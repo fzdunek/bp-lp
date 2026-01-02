@@ -95,13 +95,19 @@ class GameUserController extends Controller
         // Weryfikacja: maksymalnie 450 punktów na sekundę
         // Na podstawie przykładowych wyników:
         // - 857 pkt/5.094s = 168 pkt/s
-        // - 6044 pkt/17.325s = 349 pkt/s (maksymalny)
+        // - 6044 pkt/17.325s = 349 pkt/s
         // - 664 pkt/4.491s = 148 pkt/s
         // - 1840 pkt/5.643s = 326 pkt/s
         // - 1120 pkt/4.834s = 232 pkt/s
         // - 424 pkt/3.044s = 139 pkt/s
         // - 5190 pkt/19.227s = 270 pkt/s
-        $maxPointsPerSecond = 450;
+        // - 1863 pkt/8.838s = 211 pkt/s
+        // - 1770 pkt/9.250s = 191 pkt/s
+        // - 279 pkt/2.411s = 116 pkt/s
+        // - 1862 pkt/7.877s = 236 pkt/s
+        // - 1849 pkt/5.868s = 315 pkt/s
+        // - 10023 pkt/23.300s = 430 pkt/s (najwyższy)
+        $maxPointsPerSecond = 500;
         $pointsPerSecond = $durationSeconds > 0 ? $result / $durationSeconds : 0;
 
         if ($pointsPerSecond > $maxPointsPerSecond) {
