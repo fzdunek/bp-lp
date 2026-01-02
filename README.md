@@ -1,59 +1,420 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# BP Wild Jump - Game Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-based web application for managing a promotional game challenge for BP gas stations. The platform allows users to register, play the "Wild Jump" game, submit scores, and compete in daily and global rankings.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **User Authentication**: Registration and login system with email verification
+- **Game Integration**: Embedded Wild Jump game with score submission
+- **Score Management**: Secure score submission with anti-cheat validation
+- **Ranking System**: Daily and global leaderboards
+- **Admin Panel**: Filament 4.x-based admin interface for content management
+- **Reward System**: Promotional rewards for top players
+- **Dynamic Pages**: CMS functionality for managing static pages
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requirements
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP >= 8.2
+- Composer
+- Node.js >= 18.x and npm
+- MySQL/PostgreSQL/SQLite
+- Laravel 12.x
 
-## Learning Laravel
+## Installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd bp-lp
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
 
-## Laravel Sponsors
+3. **Install Node.js dependencies**
+   ```bash
+   npm install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+4. **Environment setup**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-### Premium Partners
+5. **Configure your `.env` file**
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=your_database
+   DB_USERNAME=your_username
+   DB_PASSWORD=your_password
+   
+   RANKING_API_KEY=your_api_key_here
+   ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+6. **Run migrations**
+   ```bash
+   php artisan migrate
+   ```
 
-## Contributing
+7. **Seed the database (optional)**
+   ```bash
+   php artisan db:seed
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+8. **Build assets**
+   ```bash
+   npm run build
+   ```
 
-## Code of Conduct
+9. **Start the development server**
+   ```bash
+   php artisan serve
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+   Or use the development script:
+   ```bash
+   composer run dev
+   ```
 
-## Security Vulnerabilities
+## Configuration
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Environment Variables
+
+Key environment variables to configure:
+
+- `RANKING_API_KEY`: API key for accessing the ranking endpoint (required for API access)
+- `APP_URL`: Application URL
+- Database configuration variables
+- Mail configuration (if using email features)
+
+### Admin Panel
+
+Access the Filament admin panel at `/admin` (default route). You'll need to create an admin user first:
+
+```bash
+php artisan make:filament-user
+```
+
+## API Documentation
+
+### Base URL
+
+All API endpoints are relative to your application URL.
+
+### Authentication
+
+Some endpoints require authentication via Laravel session cookies or Bearer token.
+
+### Endpoints
+
+#### 1. Get Current User (for Game)
+
+Returns the current authenticated user's name, or "Anonimowy Gracz" (Anonymous Player) if not authenticated.
+
+**Endpoint:** `GET /game/user`
+
+**Authentication:** Optional (session-based)
+
+**Response:**
+- **Status:** `200 OK`
+- **Content-Type:** `text/plain`
+- **Body:** User name or "Anonimowy Gracz"
+
+**Example Request:**
+```bash
+curl -X GET http://your-domain.com/game/user \
+  -H "Cookie: laravel_session=your_session_cookie"
+```
+
+**Example Response:**
+```
+John Doe
+```
+
+---
+
+#### 2. Submit Game Score
+
+Submits a game score with validation and anti-cheat measures.
+
+**Endpoint:** `POST /game/score`
+
+**Authentication:** Required (user must be logged in)
+
+**Rate Limiting:** 10 requests per minute
+
+**Request Body:**
+```json
+{
+  "time": 1704067200000,
+  "time1": 1704067250000,
+  "result": 1500
+}
+```
+
+**Parameters:**
+- `time` (required, string): Start timestamp in milliseconds
+- `time1` (required, string): End timestamp in milliseconds
+- `result` (required, integer): Game score/points
+
+**Validation Rules:**
+- Start timestamp cannot be in the future
+- End timestamp must be within 10 seconds of server time
+- Minimum 5 seconds between score submissions
+- Maximum game duration: 30 minutes
+- Maximum points per second: 500
+- Minimum game duration: 2 seconds
+- For games 5+ minutes with scores 3000+: minimum 50 points/second
+- Challenge end date: March 1, 2026 23:59:59
+
+**Response:**
+- **Status:** `200 OK` - Score saved successfully
+- **Status:** `401 Unauthorized` - User not logged in or challenge ended
+- **Status:** `403 Forbidden` - Validation failed (cheating detected)
+- **Content-Type:** `text/plain`
+
+**Success Response:**
+```
+Wynik zapisano poprawnie!
+```
+
+**Error Responses:**
+```
+Zaloguj się
+```
+```
+Wyzwanie już się zakończyło!
+```
+```
+Nie kombinuj
+```
+
+**Example Request:**
+```bash
+curl -X POST http://your-domain.com/game/score \
+  -H "Content-Type: application/json" \
+  -H "Cookie: laravel_session=your_session_cookie" \
+  -H "X-CSRF-TOKEN: your_csrf_token" \
+  -d '{
+    "time": "1704067200000",
+    "time1": "1704067250000",
+    "result": 1500
+  }'
+```
+
+---
+
+#### 3. Get Ranking
+
+Retrieves daily or global game rankings.
+
+**Endpoint:** `GET /api/ranking`
+
+**Authentication:** API Key required
+
+**Query Parameters:**
+- `date` (optional, string): Date in `Y-m-d` format (e.g., `2026-01-15`) for daily ranking. If omitted, returns global ranking.
+- `api_key` (optional, string): API key (can also be sent via `X-API-Key` header or Bearer token)
+
+**Headers:**
+- `X-API-Key`: API key (alternative to query parameter)
+- `Authorization: Bearer {api_key}`: Bearer token (alternative to query parameter)
+
+**Response:**
+- **Status:** `200 OK` - Success
+- **Status:** `400 Bad Request` - Invalid date format
+- **Status:** `401 Unauthorized` - Invalid or missing API key
+- **Status:** `500 Internal Server Error` - API key not configured
+- **Content-Type:** `application/json`
+
+**Global Ranking Response:**
+```json
+{
+  "type": "global",
+  "ranking": [
+    {
+      "place": 1,
+      "name": "John Doe",
+      "score": 10023,
+      "datetime": "14:30:25 15.01.2026"
+    },
+    {
+      "place": 2,
+      "name": "Jane Smith",
+      "score": 8570,
+      "datetime": "16:45:10 15.01.2026"
+    }
+  ],
+  "total": 2
+}
+```
+
+**Daily Ranking Response:**
+```json
+{
+  "type": "daily",
+  "date": "2026-01-15",
+  "ranking": [
+    {
+      "place": 1,
+      "name": "John Doe",
+      "score": 10023,
+      "datetime": "14:30:25 15.01.2026"
+    }
+  ],
+  "total": 1
+}
+```
+
+**Example Requests:**
+
+Global ranking:
+```bash
+curl -X GET "http://your-domain.com/api/ranking?api_key=your_api_key"
+```
+
+Daily ranking:
+```bash
+curl -X GET "http://your-domain.com/api/ranking?api_key=your_api_key&date=2026-01-15"
+```
+
+With header:
+```bash
+curl -X GET "http://your-domain.com/api/ranking?date=2026-01-15" \
+  -H "X-API-Key: your_api_key"
+```
+
+With Bearer token:
+```bash
+curl -X GET "http://your-domain.com/api/ranking?date=2026-01-15" \
+  -H "Authorization: Bearer your_api_key"
+```
+
+---
+
+## Database Schema
+
+### Users Table
+- `id`: Primary key
+- `name`: User's name
+- `email`: User's email (unique)
+- `password`: Hashed password
+- `bpme_card_number`: BPme card number (13 characters, nullable)
+- `highscore`: User's highest score (nullable)
+- `email_verified_at`: Email verification timestamp
+- `remember_token`: Remember me token
+- `created_at`, `updated_at`: Timestamps
+
+### Scores Table
+- `id`: Primary key
+- `user_id`: Foreign key to users table
+- `result`: Game score (integer, nullable)
+- `start_timestamp`: Game start time
+- `end_timestamp`: Game end time
+- `duration_ms`: Game duration in milliseconds (nullable)
+- `created_at`, `updated_at`: Timestamps
+- `deleted_at`: Soft delete timestamp
+
+### Pages Table
+- `id`: Primary key
+- `slug`: URL slug (unique)
+- `title`: Page title
+- `content`: Page content (HTML)
+- `is_active`: Active status (boolean)
+- `created_at`, `updated_at`: Timestamps
+
+## Project Structure
+
+```
+bp-lp/
+├── app/
+│   ├── Filament/          # Filament admin panel resources
+│   ├── Http/
+│   │   ├── Controllers/   # Application controllers
+│   │   └── Requests/      # Form request validators
+│   ├── Models/            # Eloquent models
+│   └── Providers/         # Service providers
+├── database/
+│   ├── migrations/        # Database migrations
+│   └── seeders/          # Database seeders
+├── public/
+│   └── game/             # Game assets (Wild Jump)
+├── resources/
+│   ├── css/              # Stylesheets
+│   ├── js/               # JavaScript files
+│   └── views/            # Blade templates
+├── routes/
+│   ├── web.php           # Web routes
+│   └── auth.php          # Authentication routes
+└── config/               # Configuration files
+```
+
+## Development
+
+### Running Tests
+
+```bash
+php artisan test
+```
+
+### Code Style
+
+The project uses Laravel Pint for code formatting:
+
+```bash
+./vendor/bin/pint
+```
+
+### Building Assets
+
+Development mode with hot reload:
+```bash
+npm run dev
+```
+
+Production build:
+```bash
+npm run build
+```
+
+## Security Features
+
+The score submission endpoint includes multiple anti-cheat measures:
+
+1. **Timestamp Validation**: Prevents future timestamps and ensures end time is close to server time
+2. **Rate Limiting**: Prevents spam submissions (5-second minimum between submissions)
+3. **Duration Validation**: Maximum game duration of 30 minutes
+4. **Points Per Second Validation**: Maximum 500 points/second to prevent unrealistic scores
+5. **Slow Game Detection**: Detects browser extension slowdowns for long games
+6. **Minimum Duration**: Games must last at least 2 seconds
+
+## Challenge Period
+
+The challenge runs from **January 19, 2026** to **March 1, 2026 23:59:59**. Score submissions are blocked after the end date.
+
+## Rewards
+
+- **Guaranteed Reward**: 100 BPme points (for registration and at least one game)
+- **Daily Reward**: Coffee/Hot dog coupon for 1 grosz (top 100 in daily ranking)
+- **Main Prize**: 150,000 BPme points (worth 1500 PLN) for 1st place in global ranking
+
+## Technologies Used
+
+- **Backend**: Laravel 12.x
+- **Frontend**: Blade templates, Tailwind CSS, Alpine.js, AOS (Animate On Scroll)
+- **Admin Panel**: Filament 4.x
+- **Build Tool**: Vite
+- **Database**: MySQL/PostgreSQL/SQLite
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is proprietary software. All rights reserved.
+
+## Support
+
+For issues or questions, please contact the development team.
