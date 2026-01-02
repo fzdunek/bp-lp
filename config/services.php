@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'ranking' => [
+        'api_key' => env('RANKING_API_KEY'),
+    ],
+
 ];

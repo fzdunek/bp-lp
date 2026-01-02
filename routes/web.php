@@ -4,9 +4,11 @@ use App\Http\Controllers\GameUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RankingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/api/ranking', [RankingController::class, 'index'])->name('api.ranking');
 
 Route::get('/game/user', GameUserController::class)->name('game.user');
 Route::post('/game/score', [GameUserController::class, 'storeScore'])
