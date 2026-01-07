@@ -32,7 +32,7 @@ final class RankingService
                 return [
                     'place' => $index + 1,
                     'name' => $item->name,
-                    'bpme_card_number' => $item->bpme_card_number,
+                    'bpme_card_number' => $item->user->bpme_card_number,
                     'score' => $item->max_result,
                     'datetime' => Carbon::parse($item->latest_timestamp)->format('H:i:s d.m.Y'),
                 ];
@@ -70,7 +70,7 @@ final class RankingService
                 return [
                     'place' => $index + 1,
                     'name' => $item->name,
-                    'bpme_card_number' => $item->bpme_card_number,
+                    'bpme_card_number' => $item->user->bpme_card_number,
                     'score' => $item->max_result,
                     'datetime' => Carbon::parse($item->latest_timestamp)->format('H:i:s d.m.Y'),
                 ];
